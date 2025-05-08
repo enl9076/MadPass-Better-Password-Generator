@@ -1,0 +1,44 @@
+chemistry	
+biochemistry	
+crystallography	
+molecular physics	
+thermodynamics	
+physics	
+ecology	
+geography	
+oceanography	
+astronomy	
+astrophysics	
+biology	
+botany	
+neuroscience	
+archaeology	
+linguistics	
+agronomy	
+anthropology	
+genetics	
+embryology	
+hematology	
+mechanics	
+zoology	
+robotics	
+earth science	
+geology	
+meteorology	
+sociology	
+statistics	
+cartography	
+cosmology	
+geophysics	
+histology	
+microbiology	
+nutrition	
+paleontology	
+volcanology	
+natural sciences	
+formal sciences	
+social sciences	
+electromagnetics	
+applied physics	
+theoretical physics	
+medicine

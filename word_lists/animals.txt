@@ -1,0 +1,139 @@
+dog	
+cat	
+giraffe	
+sheep	
+lamb	
+horse	
+pony	
+donkey	
+mule	
+ass	
+ape	
+monkey	
+gorilla	
+camel	
+bear	
+chicken	
+hen	
+deer	
+duck	
+goat	
+hyena	
+lion	
+tiger	
+cheetah	
+koala	
+oxen	
+bull	
+rabbit	
+rat	
+camel	
+walrus	
+kangaroo	
+frog	
+newt	
+lynx	
+bison	
+fox	
+baboon	
+gnu	
+wolf	
+cow	
+turtle	
+leopard	
+snake	
+raccoon	
+weasel	
+squirrel	
+pig	
+bat	
+crocodile	
+otter	
+cougar	
+seal	
+ostrich	
+salmon	
+dolphin	
+owl	
+fly	
+bass	
+shark	
+ladybug	
+whale	
+panda	
+octopus	
+coyote	
+ant	
+beetle	
+mosquito	
+penguin	
+praying mantis	
+goldfish
+clam	
+crab	
+dolphin	
+eel	
+jellyfish	
+octopus	
+otter	
+penguin	
+polar bear	
+sea horse	
+seal	
+sea lion	
+sea urchin	
+shark	
+whale	
+fish	
+coral	
+plankton	
+barnacle	
+sponge	
+shrimp	
+crocodile	
+porpoise	
+mussel	
+oyster	
+krill	
+sea turtle	
+lobster	
+squid	
+manta ray	
+sea slug	
+prawn	
+sea anemone	
+conch	
+penguins	
+stingray	
+sea otter	
+starfish	
+elephant seal	
+sea cucumber	
+sea snail	
+walrus	
+manatee	
+hooded seal	
+polar bear	
+alligator	
+harp seal	
+dugong
+cows	
+bulls	
+horses	
+pigs	
+sheep	
+chickens	
+roosters	
+ducks	
+goose	
+turkeys	
+rabbits	
+ferrets	
+goats
+sheepdog	
+donkey	
+mule	
+badger	
+deer	
+llama	
+alpaca

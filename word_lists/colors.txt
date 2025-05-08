@@ -1,0 +1,48 @@
+blue
+green
+red
+yellow	
+orange	
+purple	
+pink	
+brown	
+black	
+white	
+gray	
+charcoal gray	
+indigo	
+violet	
+turquoise	
+almond	
+amber	
+apple	
+lemon	
+blood red	
+sky blue	
+bronze	
+olive
+burgundy	
+beige	
+cream	
+coffee	
+copper	
+crimson	
+cyan	
+magenta	
+fuchsia	
+ginger	
+gold	
+jet black	
+mauve	
+navy blue	
+ochre	
+silver	
+peach	
+pear	
+pearl	
+plum	
+rose	
+salmon	
+scarlet	
+tangerine	
+teal

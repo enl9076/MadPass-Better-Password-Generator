@@ -1,0 +1,361 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+
+<MainScreen>:
+    password: password
+    pw_len: pw_len
+    copy_btn: copy_btn
+    strength: strength
+
+    MDBoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        spacing: 10
+        padding: 10, 10
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: .2
+            MDIconButton:
+                icon: 'information-outline'
+                pos_hint: {'left': 1, 'top': 1}
+                size_hint_x: .2
+                on_release: root.info_dialog()
+            Label:
+                text: ''
+                size_hint_x: .6
+            MDIconButton:
+                icon: 'arrow-right-thick'
+                pos_hint: {'right': 1, 'top': 1}
+                theme_text_color: "Custom"
+                text_color: "#6614c9"
+                size_hint_x: .2
+                on_press: root.manager.current = 'custom'
+            
+        MDLabel:
+            markup: True
+            text: "Basic\nPassword Generator"
+            halign: 'center'
+            pos_hint: {'center_x': .5, 'top': 1}
+            padding: 20
+            font_style: 'Headline'
+            role: 'medium'
+
+        GridLayout:
+            cols: 4
+            pos_hint: {'center_x': .5}
+            padding: 20, 20
+            Label:
+                text: "Uppercase [A-Z]"
+                halign: 'left'
+                pos_hint: {'left': 1}
+            CheckBox:
+                active: True
+                color: (0, 1, 0, 1)
+                on_active: root.get_checks(self, self.active, "upper")
+            Label:
+                text: "Lowercase [a-z]"
+                halign: 'left'
+            CheckBox:
+                active: True
+                color: (0, 1, 0, 1)
+                on_active: root.get_checks(self, self.active, "lower")
+            Label:
+                text: "Digits [0-9]"
+                halign: 'left'
+            CheckBox:
+                active: True
+                color: (0,1, 0, 1)
+                on_active: root.get_checks(self, self.active, "digits")
+            Label:
+                text: "Special"
+                halign: 'left'
+            CheckBox:
+                active: True
+                color: (0,1, 0, 1)
+                on_active: root.get_checks(self, self.active, "special")
+        
+        MDLabel:
+            id: strength
+            markup: True
+            text: ""
+            font_style: 'Title'
+            halign: 'center'
+            role: 'large'
+            #size_hint_y: .8
+            pos_hint: {'center_x': .5, 'center_y' : .5}
+        MDLinearProgressIndicator:
+            id: progress
+            size_hint: (.75, .1)
+            indicator_color: "grey"
+            value: 0
+            pos_hint: {'center_x': .5, 'center_y': .4}
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            MDTextField:
+                id: password
+                text: ''
+                halign: 'center'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                font_style: 'Title'
+                #size_hint: (.6, .8)
+            MDIconButton:
+                id: copy_btn
+                icon: 'content-copy'
+                pos_hint: {"center_y": .5}
+                pos: password.width - self.width + dp(10), 0
+                user_font_size: "30sp"
+                theme_text_color: "Custom"
+                text_color: (1, 1, 1, 1)
+                on_press: Clipboard.copy(password.text)
+                on_release: root.copied()
+        
+        MDBoxLayout:
+            orientation: "vertical"
+            MDButton:
+                pos_hint: {"center_x": .5, "center_y": .5}
+                theme_bg_color: 'Custom'
+                md_bg_color: "#008a15"
+                on_press: root.generate_password(pw_len)
+                MDButtonText:
+                    text: "Generate"
+                    font_style: "Title"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+            MDLabel:
+                text: "".join("Password Length:   " + str(pw_len.value))
+                font_style: 'Title'
+                role: 'medium'
+                halign: 'center'
+                pos_hint: {"center_x": .5, "center_y": .5}
+            Slider:
+                id: pw_len
+                min: 6
+                max: 30
+                value: 8
+                step: 1
+                size_hint_x: .8
+                pos_hint: {"center_x": .5, "center_y": .5}
+
+
+<CustomScreen>:
+    mad_copy_btn: mad_copy_btn
+    choice: choice
+    madlibspassword: madlibspassword
+    MDBoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        spacing: 10
+        padding: 10, 10
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: .2
+            MDIconButton:
+                icon: 'arrow-left-thick'
+                pos_hint: {'left': 1, 'top': 1}
+                size_hint_x: .2
+                on_press: root.manager.current = 'main'
+            MDLabel:
+                text: ''
+            MDIconButton:
+                icon: 'help-circle-outline'
+                pos_hint: {'right': 1, 'top': 1}
+                size_hint_x: .2
+                on_press: root.help_dialog()
+        MDLabel:
+            markup: True
+            text: "[i][color=#9f11b8]MadPass[/color][/i] Generator"
+            font_style: 'Headline'
+            role: 'medium'
+            halign: 'center'
+            pos_hint: {"center_x": .5, "center_y": .5}
+        MDLabel:
+            text: "Choose one of the drop down options to help you create a unique password"
+            font_style: "Title"
+            role: "large"
+            halign: 'center'
+        Spinner:
+            id: customize
+            text: "Choose an option"
+            size_hint: None, None
+            size: ('200dp', '50dp')
+            pos_hint: {"center_x": .5, "center_y": .5}
+            values: ["prompts", "random words", "word categories"]
+            #color: (0.957, 0.890, 0.843, 1)
+            background_color: (.624, .067, .752, .5)
+            #font_size: sp(24)
+            #option_cls: Factory.get("MySpinnerOption")
+            on_text: root.choose_customization(customize.text)
+        
+        GridLayout:
+            id: cat_layout
+            cols: 6
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            opacity: 0
+            MDLabel:
+                text: 'adjectives'
+                halign: 'right'
+                pos_hint_y: {'center_y': .5}
+                size_hint_y: .25
+                font_style: 'Label'
+                role: 'medium'
+            CheckBox:
+                id: adj
+                pos_hint: {'left': 1, 'top': 1.5}
+                padding: (20, 20)
+                color: (0, 1, 0, 1)
+                on_active: root.get_checks(self, self.active, "adj")
+            MDLabel:
+                text: 'nouns'
+                halign: 'right'
+                pos_hint_y: {'center_y': .5}
+                size_hint_y: .25
+                font_style: 'Label'
+                role: 'medium'
+            CheckBox:
+                id: noun
+                pos_hint: {'left': 1, 'top': 1.5}
+                padding: (20, 20)
+                color: (0, 1, 0, 1)
+                on_active: root.get_checks(self, self.active, "noun")
+            MDLabel:
+                text: 'verbs'
+                halign: 'right'
+                pos_hint_y: {'center_y': .5}
+                size_hint_y: .25
+                font_style: 'Label'
+                role: 'medium'
+            CheckBox:
+                id: verb
+                pos_hint: {'left': 1, 'top': 1.5}
+                padding: (20, 20)
+                color: (0, 1, 0, 1)
+                on_active: root.get_checks(self, self.active, "verb")
+            MDLabel:
+                text: 'colors'
+                halign: 'right'
+                pos_hint_y: {'center_y': .5}
+                size_hint_y: .25
+                font_style: 'Label'
+                role: 'medium'
+            CheckBox:
+                id: color
+                pos_hint: {'left': 1, 'top': 1.5}
+                padding: (20, 20)
+                color: (0, 1, 0, 1)
+                on_active: root.get_checks(self, self.active, "color")
+            MDLabel:
+                text: 'animals'
+                halign: 'right'
+                pos_hint_y: {'center_y': .5}
+                size_hint_y: .25
+                font_style: 'Label'
+                role: 'medium'
+            CheckBox:
+                id: animal
+                pos_hint: {'left': 1, 'top': 1.5}
+                padding: (20, 20)
+                color: (0, 1, 0, 1)
+                on_active: root.get_checks(self, self.active, "animal")
+            MDLabel:
+                text: 'science'
+                halign: 'right'
+                pos_hint_y: {'center_y': .5}
+                size_hint_y: .25
+                font_style: 'Label'
+                role: 'medium'
+            CheckBox:
+                id: science
+                pos_hint: {'left': 1, 'top': 1.5}
+                padding: (20, 20)
+                color: (0, 1, 0, 1)
+                on_active: root.get_checks(self, self.active, "science")
+
+        MDBoxLayout:
+            pos_hint: {'center_x':.5}
+            orientation: 'horizontal'
+            MDTextField:
+                id: madlibspassword
+                text: ""
+                multiline: True
+                halign: 'center'
+                font_style: 'Title'
+            MDIconButton:
+                id: mad_copy_btn
+                icon: 'content-copy'
+                user_font_size: "30sp"
+                theme_text_color: "Custom"
+                text_color: (1, 1, 1, 1)
+                on_press: Clipboard.copy(madlibspassword.text)
+                on_release: root.copied2()
+        
+        MDButton:
+            id: btn
+            pos_hint: {"center_x": .5, "bottom": 1}
+            disabled: True
+            theme_bg_color: 'Custom'
+            on_press: root.custom_pw()
+            on_release: 
+                if "prompts" in choice.text:\
+                root.manager.current = 'prompts'
+            MDButtonText:
+                id: choice
+                text: "Make a Selection" 
+                font_style: 'Title'
+                theme_text_color: "Custom"
+                text_color: "white"
+
+<PromptsScreen>:
+    prompt1: prompt1
+
+    MDBoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        padding: (20, 20)
+        MDLabel:
+            markup: True
+            text: "Enter your answers\nAdd any special characters or numbers you'd like\nClick 'Shuffle' for new prompts"
+            halign: "center"
+            valign: "middle"
+            font_style: "Body"
+        MDLabel:
+            id: prompt1
+            markup: True
+            text: root.shuffle_prompts()
+            font_style: "Title"
+            role: 'large'
+            halign: "center"
+        MDTextField:
+            id: prompt_entry
+            multiline: True
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: 20
+            padding: 20, 20
+            Label:
+                text: ''
+            MDButton:
+                style: 'elevated'
+                on_press: root.shuffle_prompts()
+                MDButtonText:
+                    text:"Shuffle"
+                    font_style: 'Title'
+                    theme_text_color: 'Custom'
+                    text_color: 'white'
+                MDButtonIcon:
+                    icon: 'shuffle-variant'
+            MDButton:
+                theme_bg_color: 'Custom'
+                md_bg_color:  "#008a15"
+                on_press: root.prompts_pw(prompt_entry)
+                on_release: root.manager.current = 'custom'
+                MDButtonText:
+                    text:"Done!"
+                    font_style: 'Title'
+                    theme_text_color: 'Custom'
+                    text_color: 'white'
+            Label:
+                text: ''
+                
