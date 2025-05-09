@@ -19,4 +19,6 @@
 
 ##### This app will be available is the Google Play store soon and I am constantly working to improve it and add more features
 
+##### The app is completely free, no in-app purchases, subscriptions, or ads. But if you'd like to support my work so I can continue improving and adding to this and my other apps, please consider supporting me using the button below :)
+
 <a href="https://www.buymeacoffee.com/eloliver04x" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
