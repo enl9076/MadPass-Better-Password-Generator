@@ -14,7 +14,7 @@
 #### Perfect for:
 *  Devleopers
 *  Privacy-conscious individuals
-*  Anyone who reuses "Password123" (I don't judge)
+*  Anyone who reuses "Password123" (I won't judge)
 
 
 ##### This app will be available is the Google Play store soon and I am constantly working to improve it and add more features
