@@ -17,7 +17,7 @@
 *  Anyone who reuses "Password123" (I won't judge)
 
 
-##### This app is currently available in the Microsoft store (https://apps.microsoft.com/store/detail/XPDCRDHK2RN84S) and will be available is the Google Play store soon. I am constantly working to improve it and add more features
+##### This app is currently available in the Microsoft store (https://apps.microsoft.com/store/detail/XPDCRDHK2RN84S) and in the Google Play store (https://play.google.com/store/apps/details?id=pass.app.madpass). I am constantly working to improve it and add more features
 
 ##### The app is completely free, no in-app purchases, subscriptions, or ads. But if you'd like to support my work so I can continue improving and adding to this and my other apps, please consider supporting me using the button below :)
 
